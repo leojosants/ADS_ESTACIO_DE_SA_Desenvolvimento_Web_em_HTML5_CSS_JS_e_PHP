@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <!-- HEAD -->
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Prática 01</title>
+
+      <!-- Incorporando um arquivo .js externo -->
+      <script src="script.js"></script>
+   </head>
+
+   <!-- BODY -->
+   <body>
+      <!-- <div id="exibe_resultado">Resultado da multilicação:</div> -->
+   </body>
+
+   <!-- Incorporando códigos Javascript diretamente na página -->
+   <script type="text/javascript">
+      // Peça ao usuário para inserir dois números inteiros positivos;
+      var primeiroValor = prompt('Digite o primeiro valor: ');
+      var segundoValor = prompt('Digite o segundo valor: ');
+      var resultadoDaSoma = somar(primeiroValor, segundoValor);
+      var resultadoDaSubtracao = subtrair(primeiroValor, segundoValor);
+      var resultadoDaMultiplicacao = multiplicar(primeiroValor, segundoValor);
+      var resultadoDaDivisao = dividir(primeiroValor, segundoValor);
+
+      alert(
+         `O resultado da soma entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaSoma}
+         \nO resultado da subtração entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaSubtracao}
+         \nO resultado da multiplicação entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaMultiplicacao}
+         \nO resultado da divisão entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaDivisao}`
+      );
+
+      function somar(a, b) {
+         var resultado = 0;
+         resultado = a + b;
+         return resultado;
+      }
+
+      function subtrair(a, b) {
+         var resultado = 0;
+         resultado = a - b;
+         return resultado;
+      }
+
+      function multiplicar(a, b) {
+         var resultado = 0;
+         resultado = a * b;
+         return resultado;
+      }
+
+      function dividir(a, b) {
+         var resultado = 0;
+         resultado = a / b;
+         return resultado;
+      }
+   </script>
+</html>
