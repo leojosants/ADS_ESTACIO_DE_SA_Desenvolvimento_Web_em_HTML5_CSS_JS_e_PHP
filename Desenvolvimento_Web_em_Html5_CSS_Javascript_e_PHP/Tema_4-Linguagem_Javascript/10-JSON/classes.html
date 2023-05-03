@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <!--  -->
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+
+   <!--  -->
+   <body>
+      <div id="c1">Sem conteúdo</div>
+      <button onclick="alterar()">Mudar</button>
+   </body>
+
+   <!--  -->
+   <script>
+      function Pessoa(nome, idade) {
+         this.nome = nome;
+         this.idade = idade;
+      }
+
+      //
+      function alterar() {
+         let pessoas = [
+            new Pessoa('Ana', 25),
+            new Pessoa('Carlos', 43)
+         ];
+
+         let objc = document.getElementById('c1');
+         let texto = '';
+
+         for (const x of pessoas) {
+            console.log(x);
+            texto += `${x['nome']} tem ${x['idade']} ano(s) <br />`;
+         }
+
+         objc.innerHTML = texto;
+      }
+   </script>
+</html>
