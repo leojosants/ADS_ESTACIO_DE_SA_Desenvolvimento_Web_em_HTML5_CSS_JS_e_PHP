@@ -18,43 +18,79 @@
 
    <!-- Incorporando códigos Javascript diretamente na página -->
    <script type="text/javascript">
-      // Peça ao usuário para inserir dois números inteiros positivos;
+      //
       var primeiroValor = prompt('Digite o primeiro valor: ');
       var segundoValor = prompt('Digite o segundo valor: ');
-      var resultadoDaSoma = somar(primeiroValor, segundoValor);
-      var resultadoDaSubtracao = subtrair(primeiroValor, segundoValor);
-      var resultadoDaMultiplicacao = multiplicar(primeiroValor, segundoValor);
-      var resultadoDaDivisao = dividir(primeiroValor, segundoValor);
 
-      alert(
-         `O resultado da soma entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaSoma}
-         \nO resultado da subtração entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaSubtracao}
-         \nO resultado da multiplicação entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaMultiplicacao}
-         \nO resultado da divisão entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaDivisao}`
+      var opcaoDoUsuario = prompt(
+         'Escolha uma opção: \n[1] - Adição \n[2] - Subtração \n[3] - Multiplicação \n[4] - Divisão'
       );
 
-      function somar(a, b) {
-         var resultado = 0;
-         resultado = a + b;
-         return resultado;
+      var resultadoDaOperacao = 0;
+
+      if (
+         opcaoDoUsuario == '1' ||
+         opcaoDoUsuario == '2' ||
+         opcaoDoUsuario == '3' ||
+         opcaoDoUsuario == '4'
+      ) {
+         if (segundoValor >= 1) {
+            if (opcaoDoUsuario == '1') {
+               resultadoDaOperacao = somar(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '2') {
+               resultadoDaOperacao = subtrair(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '3') {
+               resultadoDaOperacao = multiplicar(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '4') {
+               resultadoDaOperacao = dividir(primeiroValor, segundoValor);
+            }
+
+            alert(
+               `O resultado da operação entre ${primeiroValor} e ${segundoValor} é: ${resultadoDaOperacao}`
+            );
+         }
+         //
+         else {
+            if (opcaoDoUsuario == '1') {
+               resultadoDaOperacao = somar(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '2') {
+               resultadoDaOperacao = subtrair(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '3') {
+               resultadoDaOperacao = multiplicar(primeiroValor, segundoValor);
+            }
+            if (opcaoDoUsuario == '4') {
+               if (segundoValor == '0') {
+                  alert('Não é possível realizar divisão por zero');
+               } else {
+                  resultadoDaOperacao = dividir(primeiroValor, segundoValor);
+               }
+            }
+         }
+      }
+      //
+      else {
+         alert('Oção inválida');
       }
 
-      function subtrair(a, b) {
-         var resultado = 0;
-         resultado = a - b;
-         return resultado;
+      function somar(primeiroValor, segundoValor) {
+         return parseInt(primeiroValor) + parseInt(segundoValor);
       }
 
-      function multiplicar(a, b) {
-         var resultado = 0;
-         resultado = a * b;
-         return resultado;
+      function subtrair(primeiroValor, segundoValor) {
+         return parseInt(primeiroValor) - parseInt(segundoValor);
       }
 
-      function dividir(a, b) {
-         var resultado = 0;
-         resultado = a / b;
-         return resultado;
+      function multiplicar(primeiroValor, segundoValor) {
+         return parseInt(primeiroValor) * parseInt(segundoValor);
+      }
+
+      function dividir(primeiroValor, segundoValor) {
+         return parseInt(primeiroValor) / parseInt(segundoValor);
       }
    </script>
 </html>
