@@ -1,0 +1,5 @@
+
+ - 1) Crie mais um array dentro do array $frutas, para armazenar outro tipo de fruta:
+    - Frutas tropicais: goiaba, maracujá, banana e manga.
+
+- 2) Altere o código para que o array seja impresso na tela (campo CONSOLE do emulador).
