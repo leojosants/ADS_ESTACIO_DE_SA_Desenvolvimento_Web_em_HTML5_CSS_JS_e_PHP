@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Novo(a) Usuário(a)</title>
     <!--  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -16,8 +17,8 @@
 
         <form action="processa_usuario.php" method="post">
             <div class="col-4">
-                <label for="name">Nome Completo</label>
-                <input type="text" name="name" id="name" class="form-control" />
+                <label for="nome">Nome Completo</label>
+                <input type="text" name="nome" id="nome" class="form-control" />
             </div>
 
             <div class="col-4">
