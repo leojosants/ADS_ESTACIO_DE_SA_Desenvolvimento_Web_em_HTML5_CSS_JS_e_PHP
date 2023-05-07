@@ -160,7 +160,7 @@ if (!empty($_GET["meus_anuncios"]) && $_GET["meus_anuncios"] == 1) {
 
                             <td>
                                 <?php if ($a["email_usuario"] == $_SESSION["email"]) { ?>
-                                    <a href="#" class="btn btn-warning">Alterar</a>
+                                    <a href="alt_anuncio.php?id_anuncio=<?php echo $a["id"]; ?>" class="btn btn-warning">Alterar</a>
                                     <a href="#" class="btn btn-danger">Excluir</a>
                                 <?php } ?>
                             </td>
