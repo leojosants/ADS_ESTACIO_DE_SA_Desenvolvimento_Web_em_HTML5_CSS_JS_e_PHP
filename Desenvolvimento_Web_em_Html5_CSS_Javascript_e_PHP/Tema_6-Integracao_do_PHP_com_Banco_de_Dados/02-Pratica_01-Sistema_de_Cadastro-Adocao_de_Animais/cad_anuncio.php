@@ -105,7 +105,7 @@ if (empty($_SESSION)) {
 
             <br />
 
-            <button type="submit" name="enviarDados" class="btn btn-primary" value="leo">Cadastrar</button>
+            <button type="submit" name="enviarDados" class="btn btn-primary" value="CAD">Cadastrar</button>
 
             <a href="index_logado.php" class="btn btn-danger">Cancelar</a>
         </form>

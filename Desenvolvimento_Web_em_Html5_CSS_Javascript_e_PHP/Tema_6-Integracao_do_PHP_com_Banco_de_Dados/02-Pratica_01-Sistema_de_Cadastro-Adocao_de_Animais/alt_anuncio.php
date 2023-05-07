@@ -65,9 +65,6 @@ if (!empty($_GET["id_anuncio"])) {
 }
 
 //  Redirecionar (permissão)
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -80,25 +77,18 @@ if (!empty($_GET["id_anuncio"])) {
     <title>Alterar Anúncio</title>
 
     <!--  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 </head>
 
 <body>
-    <!-- 
-        Fase    ->  (F)ilhote   /   (A)dulto
-        Tipo    ->  (G)ato      /   (C)achorro 
-        Porte   ->  (P)equeno   /   (M)edio     /   (G)rande
-        Pelagem / Cor
-        Raça
-        Sexo    ->  (M)acho     /   (F)êmea
-        Observação 
-    -->
-
     <div class="container">
         <h1>Alterar Anúncio</h1>
 
         <form action="processa_anuncio.php" method="post">
+            <div class="col-4">
+                <label for="id_anuncio">ID</label>
+                <input type="text" class="form-control" name="id_anuncio" id="id_anuncio" value="<?php echo $result["id"]; ?>" readonly />
+            </div>
             <div class="col-4">
                 <label for="fase">Fase</label>
 
@@ -132,8 +122,7 @@ if (!empty($_GET["id_anuncio"])) {
 
             <div class="col-4">
                 <label for="pelagemCor">Pelagem / Cor</label>
-                <input type="text" name="pelagemCor" id="pelagemCor" class="form-control"
-                    value="<?php echo $result["pelagem_cor"]; ?>" />
+                <input type="text" name="pelagemCor" id="pelagemCor" class="form-control" value="<?php echo $result["pelagem_cor"]; ?>" />
             </div>
 
             <div class="col-4">
@@ -144,26 +133,23 @@ if (!empty($_GET["id_anuncio"])) {
             <div class="col-4">
                 <div class="form-check form-check-inline">
                     <label for="sexoM" class="form-check-label">Macho</label>
-                    <input type="radio" class="form-check-input" name="sexo" id="sexoM" value="M"
-                        <?php echo $result["sexo"] == "M" ? "checked" : "" ?> />
+                    <input type="radio" class="form-check-input" name="sexo" id="sexoM" value="M" <?php echo $result["sexo"] == "M" ? "checked" : "" ?> />
                 </div>
 
                 <div class="form-check form-check-inline">
                     <label for="sexoF" class="form-check-label">Fêmea</label>
-                    <input type="radio" class="form-check-input" name="sexo" id="sexoF" value="F"
-                        <?php echo $result["sexo"] == "F" ? "checked" : "" ?> />
+                    <input type="radio" class="form-check-input" name="sexo" id="sexoF" value="F" <?php echo $result["sexo"] == "F" ? "checked" : "" ?> />
                 </div>
             </div>
 
             <div class="col-4">
                 <label for="observacao">Observações</label>
-                <textarea name="observacao" class="form-control" id="observacao"
-                    rows="3"><?php echo $result["observacao"]; ?></textarea>
+                <textarea name="observacao" class="form-control" id="observacao" rows="3"><?php echo $result["observacao"]; ?></textarea>
             </div>
 
             <br />
 
-            <button type="submit" name="enviarDados" class="btn btn-primary" value="leo">Cadastrar</button>
+            <button type="submit" name="enviarDados" class="btn btn-primary" value="ALT">Alterar</button>
 
             <a href="index_logado.php" class="btn btn-danger">Cancelar</a>
         </form>
