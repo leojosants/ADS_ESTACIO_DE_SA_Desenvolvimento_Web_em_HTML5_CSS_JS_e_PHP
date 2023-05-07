@@ -34,6 +34,20 @@ if (empty($_SESSION)) {
 
 <body>
     <div class="container">
+        <?php if (!empty($_GET['msgErro'])) { ?>
+        <div class="alert alert-warning" role="alert">
+            <?php echo $_GET['msgErro']; ?>
+        </div>
+        <?php } ?>
+
+        <?php if (!empty($_GET['msgSucesso'])) { ?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $_GET['msgSucesso']; ?>
+        </div>
+        <?php } ?>
+    </div>
+
+    <div class="container">
         <div class="col-md-11">
             <h2 class="title">
                 Olá! <i><?php echo $_SESSION['nome']; ?></i>, seja bem-vindo(a)!
@@ -42,6 +56,7 @@ if (empty($_SESSION)) {
     </div>
 
     <div class="container">
+        <a href="cad_anuncio.php" class="btn btn-primary">Novo Anúncio</a>
         <a href="logout.php" class="btn btn-dark">Sair</a>
     </div>
 </body>
