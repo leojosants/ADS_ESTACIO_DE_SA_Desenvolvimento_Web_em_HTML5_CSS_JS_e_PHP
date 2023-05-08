@@ -1,8 +1,8 @@
 <?php
+//  Conectar ao BD (com o PHP)
 require_once 'conectaBD.php';
 
 //  Definir o BD (e a tabela)
-//  Conectar ao BD (com o PHP)
 
 session_start();
 
@@ -57,20 +57,17 @@ if (!empty($_POST)) {
     } elseif ($_POST["enviarDados"] == "ALT") { //  Alterar
         try {
             //  Construir SQL para Update
-            $sql = "UPDATE 
-                    anuncio 
-                SET 
-                    fase = :fase, 
-                    tipo = :tipo, 
-                    porte = :porte, 
-                    pelagem_cor = :pelagem_cor, 
-                    raca = :raca, 
-                    sexo = :sexo, 
-                    observacao = :observacao
-                WHERE
-                    id = :id_anuncio
-                AND
-                    email_usuario = :email";
+            $sql = "UPDATE anuncio 
+                    SET 
+                        fase = :fase, 
+                        tipo = :tipo, 
+                        porte = :porte, 
+                        pelagem_cor = :pelagem_cor, 
+                        raca = :raca, 
+                        sexo = :sexo, 
+                        observacao = :observacao
+                    WHERE id = :id_anuncio
+                    AND email_usuario = :email";
 
             //  Definir dados para SQL
             $dados = array(
@@ -97,7 +94,32 @@ if (!empty($_POST)) {
             // die($e->getMessage());
             header("Location: index_logado.php?msgErro=Falha ao ALTERAR anúncio...");
         }
-    } elseif ($_POST["enviarDados"] == "CAD") { //  Excluir
+    } elseif ($_POST["enviarDados"] == "DEL") { //  Excluir
+        //  id_anuncio ok
+        //  e-mail usuário logado
+        try {
+            $sql = "DELETE FROM anuncio
+                    WHERE id = :id_anuncio
+                    AND email_usuario = :email";
+
+            $stmt = $pdo->prepare($sql);
+
+            $dados = array(
+                ":id_anuncio" => $_POST["id_anuncio"],
+                ":email" => $_SESSION["email"]
+            );
+
+            if ($stmt->execute($dados)) {
+                header("Location: index_logado.php?msgSucesso=Anúncio excluído com sucesso!");
+            } else {
+                header("Location: index_logado.php?msgSucesso=Falha ao EXCLUIR anúncio!");
+                // header("Location: index_logado.php?msgErro=Falha ao EXCLUIR anúncio!");
+            }
+        } catch (PDOException $e) {
+            // die($e->getMessage());
+            header("Location: index_logado.php?msgSucesso=Falha ao EXCLUIR anúncio!");
+            // header("Location: index_logado.php?msgErro=Falha ao EXCLUIR anúncio!");
+        }
     } else {
         header("Location: index_logado.php?msgErro=Erro de acesso (Operação não definida).");
     }
